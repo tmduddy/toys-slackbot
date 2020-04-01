@@ -1,0 +1,23 @@
+{
+  "name": "slackbot",
+  "version": "1.0.0",
+  "description": "slackbot that responds to toys",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmduddy/toys-slackbot.git"
+  },
+  "author": "tyler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmduddy/toys-slackbot/issues"
+  },
+  "homepage": "https://github.com/tmduddy/toys-slackbot#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "slackbots": "^1.2.0"
+  }
+}
