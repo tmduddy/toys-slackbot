@@ -8,3 +8,10 @@ const bot = new SlackBot({
 })
 
 // Start Handler
+bot.on('start', () => {
+    const params = {
+        icon_emoji: ":cat:"
+    }
+
+    bot.postMessageToChannel('toys', 'welcome 2 toys', params);
+});
