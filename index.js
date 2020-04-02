@@ -10,8 +10,32 @@ const bot = new SlackBot({
 // Start Handler
 bot.on('start', () => {
     const params = {
-        icon_emoji: ":cat:"
+        icon_emoji: ":rolf:"
     }
-
-    bot.postMessageToChannel('toys', 'welcome 2 toys', params);
+    bot.postMessageToUser('UHTBJ1N7Q', 'toybot online', params);
 });
+
+// err handler
+bot.on('error', (err) => console.log(err));
+
+//message handler
+bot.on('message', (data) => {
+    if(data.type != 'message' || data.subtype == 'message_changed') {
+        return;
+    }
+    handleMessage(data.text, data.user);
+});
+
+// respond to messages
+function handleMessage(message, user) {
+    console.log(message);
+    if (user != 'UHTBJ1N7Q' || user != 'UHNBG7KJM' || user != 'UHTBM08CE') {
+        return;
+    }
+    if (message.includes('new toy')) {
+        let params = {
+            icon_emoji: ':rolf:'
+        }
+        bot.postMessageToChannel('toys', ':rolf::rolf::rolf::rolf::rolf::rolf:\nwelcome to toys mfer\n:rolf::rolf::rolf::rolf::rolf::rolf:', params)
+    }
+}
