@@ -5,7 +5,7 @@ const axios = require('axios');
 const bot = new SlackBot({
     token: process.env.SLACK_BOT_TOKEN,
     name: 'toybot'
-})
+});
 
 // Start Handler
 bot.on('start', () => {
