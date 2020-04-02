@@ -1,10 +1,22 @@
 const SlackBot = require('slackbots');
 const express = require('express');
-const bodyParser = require('body-parser');
+const { Server } = require('ws');
 
-// init webapp
-const app = express();
-app.use(bodyParser.urlencoded({ extended: false}));
+// set server and port values
+const PORT = 3000;
+const INDEX = '/index.html';
+
+// init express server
+const server = express()
+    .use((req, res) => res.sendFile(INDEX, {root: __dirname }))
+    .listen(PORT, () => console.log(`Listening on ${PORT}`))
+const wss = new Server({ server });
+
+//handle connections
+wss.on('connection', (ws) => {
+    console.log('Client connected');
+    ws.on('close', () => console.log('Client disconnected'));
+});
 
 // init bot
 const bot = new SlackBot({
@@ -29,20 +41,6 @@ bot.on('message', (data) => {
         return;
     }
     handleMessage(data.text, data.user);
-});
-
-// listen for POSTs
-app.post('/toys', function(req, res) {
-    const body = req.boody.Body
-    res.set('Content-Type', 'text/plain')
-    res.send(`You sent: ${body} to Express`)
-});
-
-app.listen(3000, (err) => {
-    if (err) {
-        throw err;
-    }
-    console.log('server started')
 });
 
 // respond to messages

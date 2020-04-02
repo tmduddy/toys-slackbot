@@ -18,6 +18,10 @@
   "homepage": "https://github.com/tmduddy/toys-slackbot#readme",
   "dependencies": {
     "axios": "^0.19.2",
-    "slackbots": "^1.2.0"
+    "bufferutil": "^4.0.1",
+    "express": "^4.17.1",
+    "slackbots": "^1.2.0",
+    "utf-8-validate": "^5.0.2",
+    "ws": "^7.2.3"
   }
 }
