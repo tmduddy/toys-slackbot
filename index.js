@@ -12,7 +12,7 @@ bot.on('start', () => {
     const params = {
         icon_emoji: ":rolf:"
     }
-    bot.postMessageToUser('UHTBJ1N7Q', 'toybot online', params);
+    bot.postMessageToChannel('toys', 'welcome 2 toys', params);
 });
 
 // err handler
@@ -28,7 +28,6 @@ bot.on('message', (data) => {
 
 // respond to messages
 function handleMessage(message, user) {
-    console.log(message);
     if (user != 'UHTBJ1N7Q' || user != 'UHNBG7KJM' || user != 'UHTBM08CE') {
         return;
     }
