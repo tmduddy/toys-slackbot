@@ -4,7 +4,7 @@ const { Server } = require('ws');
 const path = require('path');
 
 // set server and port values
-const PORT = 3000;
+const PORT = process.env.PORT;
 const INDEX = '/index.html';
 
 // init express server
